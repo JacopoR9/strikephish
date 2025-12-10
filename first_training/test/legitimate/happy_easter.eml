@@ -1,0 +1,94 @@
+Delivered-To: jacoporizzo99@gmail.com
+Received: by 2002:a8a:191d:0:b0:51f:957b:8704 with SMTP id be29csp6504173ocb;
+        Sun, 31 Mar 2024 10:07:35 -0700 (PDT)
+X-Received: by 2002:a05:6e02:1585:b0:369:aa8f:c199 with SMTP id m5-20020a056e02158500b00369aa8fc199mr2442100ilu.2.1711904855520;
+        Sun, 31 Mar 2024 10:07:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1711904855; cv=none;
+        d=google.com; s=arc-20160816;
+        b=G+O0rZp0/hNrrP3dbRIrTPo7Uxm+Pqw69TsP5LGZiKkeTqQ54WgpZwV2xApR2fJ511
+         K3ExIdx6OKqN4MSYtZIyy4mMZqIzk9FmPqhmkUKtCXimOsvToIFTZKki5vaPp+iEU8iE
+         F0athXw12a4vntyEvnPubukiR5HO3ahVL8oGV+mQeJD7XgaLPyFweKWkv3WlXtP0O/cG
+         8HvyVFGcwNtjcXd79YhpDnYbcQ1ZCy8+MtK5LUxLam/B1axjHKj9tNpWmKdb5deLTBUy
+         MbdtCQeKImzhoggzGVuYH/v8k1CZ3o9ZV4ZQIHvewTtxk69ojhTqM1v7plFfys2u/a2M
+         +aMg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=fGAC5Swxb75khderrkNltHMB6D2kSIjCP/8HNpX2HiY=;
+        fh=kQ/5/aT/03DqvX1HccTZgHTIX+IgmQZqlHAi+olkkhE=;
+        b=jjHE5BMaWnr/zTvC6qPjl0mUgtPdTMxgYuqiFmoAaaLIlz0r2J6iu6MKjoSNjxiqdi
+         SXkGJk/+LvkHXAKyXEt/q5236DOsCpCG4fW9PGq7jxByv1mL2CI6UjNSimcuYiU9mBPz
+         Xao47s83XQmqlC2spHGSf1N1kFMCKGN0wYa5jgy0Ng/e/hMkwcAuai0HCfrL2BhDK5rS
+         RTMRRv6DdYwMfjDbuvYuiH1lYWT8RqKyZbT7U7VetGyM2RahXVepZgWo6QDtVWcuURi1
+         1RcCaqsjSL0t/UJY4Ik1xLeK61Jyv63RCIAU64CM8/byFaslv6l3DwzrWce7ELRuk8Wu
+         Nj1g==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=hSNjPlyj;
+       spf=pass (google.com: domain of mattdueholm@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=mattdueholm@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <mattdueholm@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id k13-20020a6568cd000000b005d8d2581ec5sor3687580pgt.2.2024.03.31.10.07.35
+        for <jacoporizzo99@gmail.com>
+        (Google Transport Security);
+        Sun, 31 Mar 2024 10:07:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mattdueholm@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=hSNjPlyj;
+       spf=pass (google.com: domain of mattdueholm@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=mattdueholm@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1711904855; x=1712509655; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=fGAC5Swxb75khderrkNltHMB6D2kSIjCP/8HNpX2HiY=;
+        b=hSNjPlyjsi+u3fgoe8DniujqWIkcluuit/xwfGf1WEHvsot8UZsJdxLCSRQZLNzhqZ
+         kHpT4ZOH6J9heePa1xCc1czcABHy9rGn6mbCpt3zbpltMZggStEeK1RIXlzeHI0ALP2F
+         Lm0cjPVb5Vfs6njwtGH919fVWkaJgQBW0mIlb8nx74tfkoa66VYnjdr8mDosIXDXsjMj
+         U6EqC6nVYlql2PeHI2HePyajgGb3OKPPU1/vyyN4kRM/qXI7hwhb1r6+oZoK+dX4Xt30
+         jykOweyh4MwFrRqG690ih8QhzDg12D6D7cX9eqvqJZ9zJfE6ryn/q6MJbGGGdsKwTOOZ
+         YwYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1711904855; x=1712509655;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=fGAC5Swxb75khderrkNltHMB6D2kSIjCP/8HNpX2HiY=;
+        b=QfzVERJlpIjMB9a5rlWdxcCiGEH5soGxhfPm12AvMrxnNWA10rJn4vezgB7yhrEngw
+         Khx3vOkX/yvRamQtl17OwYXDjx+uSzN8l8jtSM6ajR14N0wb7TCv0vcmvZuBW5TV1LT0
+         iFe3FAFsne2D5vtOWSQDNBXAinKvdf6Yjxiokf2xFcZp+HGYcdSKYxUWMQ4ANdsHZaxB
+         NNqlgg3dPiGXqZTSMtGYKGz1tlO4pMPpxwhj+/9uncFUDH3I+owXspSqVlNPnE4nYjAv
+         /NAHUnVG9tLW6SvsuIeGETsSElRUhgIMQmSrSpux/LpEVdbtgD9HAfxl6rTyGCb+tuS/
+         aDwA==
+X-Gm-Message-State: AOJu0Yzs2Kb82/l+zrZ9kKmeYaiiskb+wzoDqjcMxObFNOq+B2EzaL9Z
+	DH3jwZshfOL5bGsQltnro3aiaGM0/Bdgh6Wi6zzN4Go74K8U+yXYsGNp8AXRLyxxR0tx/5Efy7f
+	M3EdsODdVA7s5Xi4UkgDYiqQ1WOj4xRSH
+X-Google-Smtp-Source: AGHT+IG3VhcrSTshsDGaBKZXOvP/nYY/HjBKYOQm4EROkEhmHwYFy7je4eiVWAE2w2kV/Bmw34jMTLdF77u4HjMQqic=
+X-Received: by 2002:a05:6a20:c427:b0:1a1:8c6a:ed7 with SMTP id
+ en39-20020a056a20c42700b001a18c6a0ed7mr7415220pzb.44.1711904854748; Sun, 31
+ Mar 2024 10:07:34 -0700 (PDT)
+MIME-Version: 1.0
+From: Matt Dueholm <mattdueholm@gmail.com>
+Date: Sun, 31 Mar 2024 12:07:23 -0500
+Message-ID: <CAEdC8uQMSddwk7mYPcYng-OA6nF6bVOp7t3m77U7wqNqe6Eugw@mail.gmail.com>
+Subject: Happy Easter
+To: jacoporizzo99@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000c1b9a30614f7e8ca"
+
+--000000000000c1b9a30614f7e8ca
+Content-Type: text/plain; charset="UTF-8"
+
+I hope you are doing well and that you and your family are enjoying a Happy
+Easter.
+
+I also hope that we will meet again (if only online) soon.
+
+Greetings from the frigid heart of America :).
+
+Matt
+
+--000000000000c1b9a30614f7e8ca
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr">I hope you are doing well and that you and your family are enjoying a Happy Easter.<br><br>I also hope that we will meet again (if only online) soon.<br><br>Greetings from the frigid heart of America :).<div><br></div><div>Matt</div></div>
+
+--000000000000c1b9a30614f7e8ca--

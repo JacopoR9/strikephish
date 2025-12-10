@@ -1,0 +1,219 @@
+/* ===== BODY ===== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f7f8;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== TOP BAR ===== */
+.topbar {
+    width: 100%;
+    background-color: #1f2937; /* dark gray */
+    color: #fff;
+    padding: 18px 20px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.topbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* title centered */
+    position: relative;
+}
+
+.topbar-title {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.topbar-title:hover {
+    color: #d1d5db; /* optional lighter on hover */
+}
+
+.topbar-version {
+    position: absolute;
+    right: 40px;             /* inset from right edge */
+    font-size: 24px;         /* same as title */
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #d1d5db;          /* lighter gray */
+}
+
+/* ===== MAIN CONTAINER ===== */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 20px 50px;
+    min-height: calc(100vh - 100px);
+}
+
+/* Centered for GET (upload only) */
+.main-container.centered {
+    justify-content: center;
+}
+
+/* For POST with results */
+.main-container.with-results {
+    justify-content: flex-start;
+}
+
+/* ===== CARD ===== */
+.card {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    max-width: 700px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.card.small-card {
+    max-width: 500px;
+    padding: 20px 30px;
+}
+
+/* CARD TITLE */
+.card-title {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #1f2937;
+}
+
+/* ===== LOGO INSIDE CARD ===== */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 100px;   /* smaller to fit nicely */
+    height: auto;
+}
+
+/* ===== FORM INPUT AND BUTTON ===== */
+.card form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* space between input and button */
+}
+
+.card form input[type="file"] {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.card form button {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    border: none;
+    background-color: #2563eb;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.card form button:hover {
+    background-color: #1e40af;
+}
+
+/* ===== RESULTS SECTION ===== */
+.results-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    align-items: start; /* prevents stretching right column */
+}
+
+/* LEFT COLUMN: Email Info */
+.email-info {
+    background-color: #eff6ff;
+    border: 1px solid #60a5fa;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+/* RIGHT COLUMN: Predictions (shrink to content) */
+.predictions {
+    background-color: #fefce8;
+    border: 1px solid #facc15;
+    border-radius: 8px;
+    padding: 20px;
+    height: fit-content;
+}
+
+/* ===== COLLAPSIBLE BODY ===== */
+pre {
+    transition: max-height 0.3s ease;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+pre.collapsed {
+    max-height: 150px;
+    overflow: hidden;
+}
+
+pre.expanded {
+    max-height: none;
+}
+
+/* SHOW MORE / LESS BUTTON */
+.btn-toggle {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 12px;
+    font-size: 14px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-toggle:hover {
+    background-color: #1e40af;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .results-section {
+        grid-template-columns: 1fr; /* stack columns on smaller screens */
+    }
+    .card.small-card {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .card {
+        padding: 20px;
+        margin: 10px;
+    }
+    .card.small-card {
+        padding: 15px;
+    }
+    .logo {
+        width: 80px;
+    }
+}

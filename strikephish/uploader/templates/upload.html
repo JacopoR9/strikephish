@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StrikePhish - Email Analyzer</title>
+    <link rel="stylesheet" href="{% static 'uploader/style.css' %}">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="topbar">
+    <div class="topbar-content">
+        <a href="{% url 'upload' %}" class="topbar-title">StrikePhish</a>
+        <div class="topbar-version">v0.1</div>
+    </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="main-container {% if display_result %}with-results{% else %}centered{% endif %}">
+    
+    <!-- UPLOAD FORM -->
+    <div class="card {% if display_result %}small-card{% endif %}">
+        <!-- Logo inside card (only if no results) -->
+        {% if not display_result %}
+        <div class="logo-container">
+            <img src="{% static 'uploader/logo.png' %}" alt="StrikePhish Logo" class="logo">
+        </div>
+        {% endif %}
+    
+        <h1 class="card-title">Upload a File</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="file" required class="file-input">
+            <button type="submit" class="btn">Analyze</button>
+        </form>
+    </div>
+
+    <!-- RESULTS SECTION (POST only) -->
+    {% if display_result %}
+    <div class="results-section">
+        <!-- LEFT COLUMN: Email Info -->
+        <div class="email-info">
+            <h2>Email Information</h2>
+            <p><strong>Sender:</strong> {{ from }}</p>
+            <p><strong>Receiver:</strong> {{ to }}</p>
+            <p><strong>Date:</strong> {{ datetime }}</p>
+            <p><strong>Subject:</strong> {{ subject }}</p>
+            <h3>Email Body</h3>
+            <div class="body-container">
+                <pre id="emailBody" class="collapsed">{{ body }}</pre>
+                <button id="toggleBodyBtn" class="btn-toggle">Show More</button>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Predictions -->
+        <div class="predictions">
+            <h2>Predictions</h2>
+            <p><strong>Meta model prediction:</strong> {{ meta_model_prediction }}</p>
+            <p><strong>Body model prediction:</strong> {{ body_model_prediction }}</p>
+            <p><strong>Combined prediction:</strong> {{ combined_prediction }}</p>
+        </div>
+    </div>
+    {% endif %}
+
+</main>
+
+<!-- SHOW MORE / LESS SCRIPT -->
+<script>
+    const emailBody = document.getElementById('emailBody');
+    const toggleBtn = document.getElementById('toggleBodyBtn');
+
+    if (emailBody && toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            if(emailBody.classList.contains('collapsed')) {
+                emailBody.classList.remove('collapsed');
+                emailBody.classList.add('expanded');
+                toggleBtn.textContent = "Show Less";
+            } else {
+                emailBody.classList.remove('expanded');
+                emailBody.classList.add('collapsed');
+                toggleBtn.textContent = "Show More";
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

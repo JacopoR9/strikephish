@@ -1,0 +1,52 @@
+METADATA MODEL
+
+Epoch 1/6
+  Train Loss: 0.1570, Acc: 0.9308, F1: 0.9378
+  Val Loss:   0.0206, Acc: 0.9937, F1: 0.9944
+  
+Epoch 2/6
+  Train Loss: 0.0195, Acc: 0.9942, F1: 0.9948
+  Val Loss:   0.0186, Acc: 0.9950, F1: 0.9955
+  
+Epoch 3/6
+  Train Loss: 0.0117, Acc: 0.9963, F1: 0.9967
+  Val Loss:   0.0055, Acc: 0.9978, F1: 0.9981
+  
+Epoch 4/6
+  Train Loss: 0.0077, Acc: 0.9979, F1: 0.9981
+  Val Loss:   0.0089, Acc: 0.9981, F1: 0.9983
+  
+Epoch 5/6
+  Train Loss: 0.0056, Acc: 0.9983, F1: 0.9985
+  Val Loss:   0.0057, Acc: 0.9991, F1: 0.9992
+  
+Epoch 6/6
+  Train Loss: 0.0033, Acc: 0.9990, F1: 0.9991
+  Val Loss:   0.0057, Acc: 0.9990, F1: 0.9991
+
+
+BODY MODEL
+
+Epoch 1/6
+  Train Loss: 0.1224, Acc: 0.9476, F1: 0.9524
+  Val Loss:   0.0181, Acc: 0.9948, F1: 0.9953
+  
+Epoch 2/6
+  Train Loss: 0.0141, Acc: 0.9960, F1: 0.9965
+  Val Loss:   0.0132, Acc: 0.9964, F1: 0.9968
+  
+Epoch 3/6
+  Train Loss: 0.0061, Acc: 0.9982, F1: 0.9984
+  Val Loss:   0.0150, Acc: 0.9966, F1: 0.9969
+  
+Epoch 4/6  
+  Train Loss: 0.0031, Acc: 0.9991, F1: 0.9992
+  Val Loss:   0.0118, Acc: 0.9972, F1: 0.9975
+  
+Epoch 5/6
+  Train Loss: 0.0016, Acc: 0.9995, F1: 0.9996
+  Val Loss:   0.0135, Acc: 0.9971, F1: 0.9974
+  
+Epoch 6/6
+  Train Loss: 0.0013, Acc: 0.9996, F1: 0.9997
+  Val Loss:   0.0138, Acc: 0.9971, F1: 0.9974
